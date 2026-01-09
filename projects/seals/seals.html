@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sensemaking in VR – Shalini Raval</title>
+  <!-- Dynamic favicon that changes with color scheme -->
+  <link rel="icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <!-- Preload main hero image for faster loading -->
+  <link rel="preload" as="image" href="assets/seals.png">
+  <link rel="apple-touch-icon" href="../../blackfavicon.ico">
+  
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/home.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+  <script src="../../js/footer-component.js"></script>
+  
+  <style>
+    /* Seals project specific styling with ocean/research palette */
+        .section-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #6B8E99;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.25rem;
+      text-align: left;
+    }
+    
+    .blue-gradient {
+      background: linear-gradient(135deg, #4A7C8C, #6BA4B8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    /* Project content sections */
+    .project-overview {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .project-overview h2 {
+      font-size: 2rem;
+      color: #4A7C8C;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    
+    .project-overview p {
+      color: var(--gray);
+      line-height: 1.6;
+      font-size: 1.125rem;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    
+    .project-content {
+      margin: 0;
+      padding: 2rem;
+      text-align: left;
+    }
+    
+    .project-hero-image img[src*="seals"] {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      max-height: 600px !important;
+    }
+    
+    /* Style for content images */
+    .project-content img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin: 1.5rem auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+    
+    /* Style for image captions */
+    .project-content img + p {
+      font-size: 0.875rem;
+      color: #4A7C8C;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="../../index.html">
+        <img src="../../assets/images/logo.png" alt="Logo" class="nav-logo">
+      </a>
+      <div class="nav-links">
+        <a href="../../index.html">work</a>
+        <a href="../../about.html">about</a>
+        <a class="button" href="https://drive.google.com/file/d/1YtDi49Dao6Ei3i-rhFZY4w2VZYCJpwPu/view?usp=sharing" target="_blank">resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <a href="../../index.html" class="back-arrow">←</a>
+
+  <main class="project-page">
+    <header class="project-hero reveal">
+      <figure class="project-hero-image">
+        <img src="assets/seals-hero.png" alt="VR sensemaking environment for elephant seal tracking" />
+      </figure>
+      
+      <div class="project-header-content reveal">
+        <div class="project-text-content">
+          <div class="project-text-left">
+            <h1 class="project-page-title">Sensemaking in VR</h1>
+            <p class="project-tagline">Exploring northern elephant seal migration patterns through immersive visualization.</p>
+          </div>
+          
+          <a href="https://smrghsh.github.io/seals/" class="prototype-button" target="_blank" rel="noopener noreferrer">
+            Preview
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="project-meta-info">
+          <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">VR Developer & Researcher</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">Ongoing</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">With</span>
+            <span class="meta-value">The SET Lab @ UCSC</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Technologies</span>
+            <span class="meta-value">Three.js
+Node.js
+JavaScript
+</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-content">
+      <div class="project-overview">
+        <span class="section-label">OVERVIEW</span>
+        <p>This project is a multi-user VR experience designed to help marine biologists analyze and make sense of northern elephant seal migration patterns in Monterey Bay, California. By translating complex tracking data into an immersive 3D environment, the platform enables researchers to discover spatial and temporal patterns that are difficult to detect through traditional 2D visualizations.</p>
+      </div>
+
+      <!-- Additional content sections will go here -->
+    </section>
+    
+  <script>
+    // Reveal-on-scroll for project content
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+  </main>
+
+  <footer-component></footer-component>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* DM Sans from Google */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+/* @font-face {
+  font-family: "Redaction";
+  src: url("/fonts/Redaction.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+} */
+
+:root {
+  --brand-blue: #9bb0ce;
+  --gray:       #6a6a6a;
+  --grad:       linear-gradient(90deg, #ff6b6b, #ffb86b, #4be1ec);
+
+--grad-dynamic: linear-gradient(
+    90deg,
+    #9bb0ce   0%,
+    #A0B6DB  10%,
+    #919BE4  20%,
+    #FFDFCB  30%,
+    #FFCF93  40%,
+    #FFE4B5  50%,
+    #f5dce7  60%,
+    #b3cfee 70%,
+    #A0B6DB 80%,
+    #919BE4 90%,
+    #9bb0ce 100%
+  );
+
+  /* Design tokens */
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --radius-2xl: 32px;
+  
+  /* 8pt spacing scale */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 2.5rem;   /* 40px */
+  --space-6: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-10: 5rem;    /* 80px */
+  --space-12: 6rem;    /* 96px */
+
+  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI",
+                  Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: "Redaction", serif;
+  --font-subtitle:'DM Sans', sans-serif;
+}

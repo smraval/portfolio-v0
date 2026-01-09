@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portkey360 – Shalini Raval</title>
+  <!-- Dynamic favicon that changes with color scheme -->
+  <link rel="icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <!-- Preload main hero image for faster loading -->
+  <link rel="preload" as="image" href="assets/portkey-mockup.png">
+  <link rel="apple-touch-icon" href="../../blackfavicon.ico">
+  
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/home.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+  <script src="../../js/footer-component.js"></script>
+  
+  <style>
+    /* Portkey specific styling with earthy palette */
+    
+    /* Section labels styling */
+    .section-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #8B8680;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.25rem;
+      text-align: left;
+    }
+    
+    /* Green gradient text styling */
+    .green-gradient {
+      background: linear-gradient(135deg, #79826B, #9CAF88);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    /* Project content sections */
+    .project-overview {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .project-overview h2 {
+      font-size: 2rem;
+      color: #79826B;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    
+    .project-overview p {
+      color: var(--gray);
+      line-height: 1.6;
+      font-size: 1.125rem;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    
+    .generative-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .generative-section h2 {
+      font-size: 2rem;
+      color: #79826B;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    
+    .generative-section p {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .capabilities-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .capabilities-section h3 {
+      font-size: 1.25rem;
+      color: #A1B38C;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    
+    .capabilities-list {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
+    
+    .capabilities-list li {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.5rem;
+      text-align: left;
+    }
+    
+    .capabilities-list li::before {
+      content: "•";
+      color: #A1B38C;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .infrastructure-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .infrastructure-section h2 {
+      font-size: 2rem;
+      color: #79826B;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    
+    .infrastructure-section p {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: left;
+    }
+    
+    .tech-item {
+      background: #F4F3EC;
+      border: 0.96px solid #ABB997;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+    }
+    
+    .tech-item h4 {
+      color: #79826B;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+    
+    .tech-item p {
+      color: var(--gray);
+      font-size: 0.875rem;
+      line-height: 1.4;
+      margin: 0;
+      text-align: left;
+    }
+    
+    .implementation-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .implementation-section h2 {
+      font-size: 1.5rem;
+      color: #79826B;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    
+    .implementation-section p {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .challenges-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .challenges-section h2 {
+      font-size: 2rem;
+      color: #79826B;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    
+    .challenges-section p {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .learning-highlight {
+      background: #F4F3EC;
+      border-left: 4px solid #B9C5A8;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .learning-highlight p {
+      margin: 0;
+      font-style: italic;
+      color: #79826B;
+    }
+    
+    .skills-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .skills-section h3 {
+      font-size: 1.25rem;
+      color: #A1B38C;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    
+    .skills-list {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
+    
+    .skills-list li {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+      text-align: left;
+      display: block;
+      width: fit-content;
+    }
+    
+    .skills-list li::before {
+      content: "•";
+      color: #B9C5A8;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .future-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .future-section h2 {
+      font-size: 2rem;
+      color: #79826B;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    
+    .future-section p {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .future-list {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
+    
+    .future-list li {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.5rem;
+      text-align: left;
+    }
+    
+    .future-list li::before {
+      content: "→";
+      color: #A1B38C;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Override default project content styling for Portkey */
+    .project-content {
+      margin: 0;
+      padding: 2rem;
+      text-align: left;
+    }
+    
+    /* Ensure Portkey hero image is properly sized */
+    .project-hero-image img[src*="portkey-mockup"] {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      max-height: 600px !important;
+    }
+    
+    /* Style for content images */
+    .project-content img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin: 1.5rem auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+    
+    /* Style for image captions */
+    .project-content img + p {
+      font-size: 0.875rem;
+      color: #79826B;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+   
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .tech-item {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="../../index.html">
+        <img src="../../assets/images/logo.png" alt="Logo" class="nav-logo">
+      </a>
+      <div class="nav-links">
+        <a href="../../index.html">work</a>
+        <a href="../../about.html">about</a>
+        <a class="button" href="https://drive.google.com/file/d/1iiaJBpraR9XzEFWPnvUJw-jEm0uLX308/view?usp=sharing" target="_blank">resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <a href="../../index.html" class="back-arrow">←</a>
+
+  <main class="project-page">
+    <header class="project-hero reveal">
+      <figure class="project-hero-image">
+        <img src="assets/portkey-mockup.png" alt="Portkey360 platform interface" />
+      </figure>
+      
+      <div class="project-header-content reveal">
+        <div class="project-text-content">
+          <div class="project-text-left">
+            <h1 class="project-page-title">Portkey360</h1>
+            <p class="project-tagline">Your imagination, brought to life in 360°.</p>
+          </div>
+          
+          <a href="https://github.com/smraval/portkey-360" class="prototype-button" target="_blank" rel="noopener noreferrer">
+            GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="project-meta-info">
+          <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Full Stack Developer</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">June 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Frontend</span>
+            <span class="meta-value">Next.js
+Three.js
+React Three Fiber
+</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Backend</span>
+            <span class="meta-value">FastAPI
+PyTorch</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-content">
+      <div class="project-overview">
+        <span class="section-label">OVERVIEW</span>
+        <!-- <h2>Project Overview</h2> -->
+        <p>Portkey 360°, your imagination, brought to life in 360°. The project generates immersive panoramic environments from text descriptions, which can be explored directly in the browser.</p>
+        <p>It combines a Next.js + React Three Fiber frontend with a FastAPI backend serving Stable Diffusion v1.5 through Hugging Face Diffusers. The architecture demonstrates how generative AI can power interactive 3D experiences on the web.</p>
+      </div>
+
+      <div class="generative-section reveal">
+        <span class="section-label">FEATURES</span>
+        <h2>Generative Panoramas in Real Time</h2>
+        <p>Portkey 360° allows users to describe any scene in words and transform it into a 360° panorama within seconds. These outputs are rendered with React Three Fiber and a WebGL viewer, enabling intuitive navigation inside the generated scene.</p>
+        
+        <div class="capabilities-section">
+          <h3>Key capabilities:</h3>
+          <ul class="capabilities-list">
+            <li>Text-to-panorama generation using Stable Diffusion.</li>
+            <li>Real-time 3D scene exploration in the browser.</li>
+            <li>Lightweight rendering components for reuse and integration.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="infrastructure-section reveal">
+        <span class="section-label">TECHNOLOGY</span>
+        <h2>Inference Infrastructure</h2>
+        <p>The backend, built with FastAPI, handles text-to-image inference requests and integrates directly with PyTorch + Diffusers. Instead of containerization, the system is designed for local development and GPU execution, with manual environment setup for reproducibility.</p>
+        
+        <!-- <div class="tech-grid">
+          <div class="tech-item">
+            <h4>Model</h4>
+            <p>Stable Diffusion v1.5</p>
+          </div>
+          <div class="tech-item">
+            <h4>Backend</h4>
+            <p>FastAPI, PyTorch, Hugging Face Diffusers</p>
+          </div>
+          <div class="tech-item">
+            <h4>Frontend</h4>
+            <p>Next.js, React Three Fiber, Three.js</p>
+          </div>
+          <div class="tech-item">
+            <h4>Rendering</h4>
+            <p>WebGL panorama viewer</p>
+          </div>
+        </div> -->
+        <img src="assets/prompt.svg" alt="Portkey360 tech stack" />
+        <p>⬆️ Prompt window for entering scene descriptions to generate 360° panoramas.</p>
+        
+        <p>This separation of inference and rendering ensures responsive web performance while keeping the compute-intensive model logic isolated from the user interface.</p>
+      </div>
+
+
+      <div class="challenges-section reveal">
+        <span class="section-label">CHALLENGES</span>
+        <h2>Navigating Panorama Distortions</h2>
+        <p>One challenge was adapting Stable Diffusion to panoramic images. Training custom LoRA weights introduced distortions when converting to 360° projections, and the model struggled to generalize. I ended up relying on the base model with careful prompt engineering, which gave more reliable panoramas with fewer artifacts.</p>        
+        <div class="learning-highlight">
+          <p>This decision taught me to weigh fine-tuning costs vs. practical reliability, a valuable lesson in building generative AI systems.</p>
+        </div>
+        
+        <div class="skills-section">
+          <h3>Along the way, I strengthened skills in:</h3>
+          <ul class="skills-list">
+            <li>Stable Diffusion inference and panoramic prompt engineering.</li>
+            <li>Next.js + React Three Fiber for interactive rendering.</li>
+            <li>FastAPI API development for ML model serving.</li>
+            <li>Designing reproducible workflows without heavy deployment overhead.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="future-section reveal">
+        <span class="section-label">FUTURE</span>
+        <h2>Immersive Worldbuilding</h2>
+        <p>The next stage of Portkey 360° is to expand beyond static panoramas toward <strong class="green-gradient">immersive</strong> and <strong class="green-gradient">interactive experiences</strong>:</p>
+        
+        <ul class="future-list">
+          <li>VR headset compatibility for fully embodied exploration.</li>
+          <li>Panorama-specific model training on curated datasets.</li>
+          <li>Adjustable generation parameters (style, lighting, weather, time of day).</li>
+          <li>Multi-scene stitching to form explorable environments.</li>
+          <li>Cloud GPU scaling for faster inference and shared sessions.</li>
+        </ul>
+        
+        <p>These extensions position Portkey 360° as a prototype for creative worldbuilding tools across web, VR, and AR platforms.</p>
+      </div>
+    </section>
+    
+  <script>
+    // Reveal-on-scroll for project content
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+  </main>
+
+  <footer-component></footer-component>
+</body>
+</html>

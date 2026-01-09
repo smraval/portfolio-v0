@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpeakEasy – Shalini Raval</title>
+  <!-- Dynamic favicon that changes with color scheme -->
+  <link rel="icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <!-- Preload main hero image for faster loading -->
+  <link rel="preload" as="image" href="assets/speak-easy-hub.svg">
+  <link rel="apple-touch-icon" href="../../blackfavicon.ico">
+  
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/home.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+  <script src="../../js/footer-component.js"></script>
+  
+  <style>
+    /* SpeakEasy specific styling */
+    .problem-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .problem-section .section-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #CD3735;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.25rem;
+      text-align: left;
+    }
+    
+    .problem-section h2 {
+      font-size: 2rem;
+      color: #076282;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    
+    .problem-section p {
+      color: var(--gray);
+      line-height: 1.6;
+      font-size: 1.125rem;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    /* Gray problem box similar to Pearl's selected adaptation */
+    .problem-box {
+      text-align: left;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #E9E9E9;
+      border: 2px solid #D9D9D9;
+      margin: 1.5rem 0;
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+    .problem-box .section-label { color: #CD3735; margin-bottom: 0.5rem; }
+    .problem-box h2 { color: #076282; font-size: 1.75rem; margin: 0 0 0.75rem 0; font-weight: 700; }
+    .problem-box p { color: var(--gray); margin-bottom: 0.75rem; }
+    .problem-box ol { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .problem-box li { margin-bottom: 0.5rem; }
+    
+    .image-placeholder {
+      background-color: #f5f5f5;
+      border: 2px dashed #CD3735;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    
+    .image-placeholder p {
+      color: #CD3735;
+      font-style: italic;
+      margin: 0;
+    }
+    
+    /* Override challenge section for SpeakEasy */
+    .challenge {
+      margin-bottom: 2.5rem !important;
+    }
+    
+    .challenge h2 {
+      color: #076282 !important;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .highlight {
+      color: #2274A5 !important;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    
+    /* Override context section */
+    .context {
+      margin-bottom: 2.5rem !important;
+    }
+    
+    .context h2 {
+      color: #076282 !important;
+      margin-bottom: 1rem;
+    }
+    
+    /* Override concept section */
+    .concept {
+      margin-bottom: 2.5rem !important;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .concept h2 {
+      color: #076282 !important;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .concept p {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: left;
+      font-size: 1rem;
+    }
+    
+    /* Override elements section */
+    .element {
+      background: transparent !important;
+      border: 0.96px solid #D9D9D9 !important;
+      border-radius: 16px;
+    }
+    
+    .element h3 {
+      color: #076282 !important;
+    }
+    
+    /* Style the reflections section headers */
+    .reflections {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    .reflections .section-label {
+      color: #CD3735 !important;
+      margin-bottom: 0.25rem;
+    }
+    
+    .reflections h2 {
+      color: #076282 !important;
+      margin-bottom: 1rem;
+    }
+    
+    .section-header {
+      margin-bottom: 1.5rem !important;
+    }
+    
+    .takeaways-content {
+      margin-bottom: 2rem !important;
+    }
+    
+    /* Style the feedback section */
+    .feedback-label {
+      color: #2274A5 !important;
+      margin-bottom: 0.75rem;
+    }
+    
+    .judge-feedback {
+      margin-bottom: 1.5rem !important;
+    }
+    
+    /* Style the login transparency section */
+    .login-transparency {
+      margin-bottom: 2.5rem !important;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      overflow: visible;
+    }
+    .login-transparency .login-text {
+      flex: none !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      padding-top: 0;
+    }
+    .login-transparency img {
+      flex: none !important;
+      max-width: 45% !important;
+      width: 45% !important;
+      margin: 0;
+      box-shadow: none !important;
+      transform: none !important;
+      transform-origin: initial;
+      align-self: flex-end;
+     
+    }
+    @media (max-width: 768px) {
+      .login-transparency { flex-direction: column; }
+      .login-transparency img { max-width: 100%; }
+    }
+    
+    .login-transparency h2 {
+      color: #076282 !important;
+      margin-bottom: 1rem;
+    }
+    
+    /* Presenting SpeakEasy section */
+    .presenting-section {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+    
+    .presenting-section h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #CD3735 !important;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    
+    .presenting-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Gradient text styling */
+    .gradient-text {
+      background: linear-gradient(135deg, #CD3735, #E85A4F);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    /* Goals section */
+    .goals-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    .goals-section h2 {
+      font-size: 1.5rem;
+      color: #076282 !important;
+      margin-bottom: 0.25rem; 
+      text-align: left;
+    }
+    /* Reduce padding in goal cards to remove excess whitespace */
+    .goals-section .element {
+      padding: 1rem 1.25rem !important;
+    }
+    .goals-section .elements-grid {
+      margin-top: 0.75rem;
+      row-gap: 1rem;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    
+    /* Iterations section */
+    .iterations {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    .iterations h2 {
+      font-size: 1.5rem;
+      color: #076282 !important;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .iterations p {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    
+    .iterations img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Login transparency images */
+    .login-transparency img {
+      max-width: 40%;
+      height: auto;
+      display: block;
+      margin: 2rem auto 0;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Red prototype button */
+    .red-prototype-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 12px 24px;
+      background-color: #CD3735;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.025em;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(205, 55, 53, 0.3);
+    }
+    
+    .red-prototype-button:hover {
+      background-color: #B82E2C;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(205, 55, 53, 0.4);
+      color: white;
+    }
+    
+    .red-prototype-button svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .red-prototype-button:hover svg {
+      transform: translate(2px, -2px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="../../index.html">
+        <img src="../../assets/images/logo.png" alt="Logo" class="nav-logo">
+      </a>
+      <div class="nav-links">
+        <a href="../../index.html">work</a>
+        <a href="../../about.html">about</a>
+        <a class="button" href="https://drive.google.com/file/d/1iiaJBpraR9XzEFWPnvUJw-jEm0uLX308/view?usp=sharing" target="_blank">resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <a href="../../index.html" class="back-arrow">←</a>
+
+  <main class="project-page">
+
+    <header class="project-hero reveal">
+      <figure class="project-hero-image">
+        <img src="assets/speak-easy-hub.svg" alt="SpeakEasy app screens" />
+      </figure>
+      
+      <div class="project-header-content reveal">
+        <div class="project-text-content">
+          <div class="project-text-left">
+            <h1 class="project-page-title">SpeakEasy</h1>
+            <p class="project-tagline">Gamified speech therapy through interactive challenges</p>
+          </div>
+          
+          <a href="https://www.figma.com/proto/XvhbE3Adqd3c6aluez2vnO/Speakeasy?page-id=0%3A1&node-id=946-42173&p=f&viewport=946%2C332%2C0.07&t=x5DmdrIaXjlQyweG-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=946%3A42173&show-proto-sidebar=1" class="prototype-button" target="_blank">
+            Prototype
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="project-meta-info">
+          <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">UX/UI Designer</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">February 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Award</span>
+            <span class="meta-value">🏆 Second Place @ SVC Designathon</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">With</span>
+            <span class="meta-value"><a href="https://www.linkedin.com/in/arti-gnanasekar/" target="_blank">Arti Gnanasekar</a>
+<a href="https://www.linkedin.com/in/jeff-antony/" target="_blank">Jeffrey Antony</a>
+<a href="https://www.linkedin.com/in/snehakuppili/" target="_blank">Sneha Kuppili</a></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-content">
+      <div class="overview">
+        <p>Speak Easy is an <strong class="gradient-text">all-in-one game designed to support individuals who stutter</strong> by providing engaging and interactive activities to practice speaking. At the same time, Speak Easy helps improve speech technologies by collecting valuable data to enhance speech recognition and fluency support. Our mission is to empower users with confidence in their speech while contributing to the future of inclusive communication technology.</p>
+      </div>
+
+      <div class="problem-section reveal">
+        <span class="section-label">PROBLEM</span>
+        <h2>Challenge</h2>
+        <p>Design a mobile app that empowers individuals who stutter to practice speaking confidently in a supportive and low-pressure environment. The app should also encourage voluntary data contribution for more inclusive AI speech technologies, with a focus on user consent, transparency, and clarity around dataset use. You may incorporate elements like gamification, progress tracking, or personalized goals to make the experience engaging and user-driven. <b>This lead us to the question:</b></p>
+      </div>
+
+      <div class="challenge reveal">
+        <p class="highlight"><strong>How might we empower individuals who stutter to practice speaking confidently in a supportive environment while contributing to more inclusive speech recognition technologies?​</strong></p>
+      </div>
+
+      <div class="context reveal">
+        <span class="section-label">GOALS</span>
+        <h2>Context</h2>
+        <p><b>Over 70 million people stutter globally, yet most speech technologies fail to serve them, because they're trained only on fluent speech.</b></p>
+        <p>Current speech technologies, such as automated phone menus or computer-generated captions, often fail to work well for people who stutter due to training on fluent speech. To make these speech technologies more responsive and accessible for people who stutter, it is important to collect more diverse stuttered speech data to improve these technologies.</p>
+      </div>
+
+      <div class="concept reveal">
+        <h2>Concept</h2>
+        <p>Speak Easy reimagines classic games like <b>Scattergories</b>, <b>Wavelength</b>, and <b>Brainteasers</b> as interactive tools for practicing speech. Instead of drills that feel clinical or repetitive, users are invited into playful challenges where they describe, guess, and respond out loud—just like they would in a group game night.</p>
+        
+        <p>By blending the fun of category prompts, scale-based guessing, and puzzle-style thinking with structured voice practice, <b>peak Easy lowers the pressure of speaking while keeping users engaged</b>. Each round encourages natural, spontaneous speech, while also generating valuable data to train more inclusive speech recognition systems. The result is a game that builds confidence, feels rewarding in the moment, and contributes to better communication technology for everyone.</p>
+      </div>
+            
+      <div class="goals-section reveal">
+        <h2>Pillars</h2>
+        <div class="elements-grid">
+        <div class="element">
+          <h3>Intentionality</h3>
+          <p>We aimed to create an engaging and enjoyable app while also leveraging speech data to help individuals who stutter. This would contribute to improving data collection and speech technologies.</p>
+        </div>
+
+        <div class="element">
+          <h3>Accessibility</h3>
+          <p>We sought to implement as many inclusive features as possible to make the app enjoyable for everyone. In particular, we designed functions to support individuals who stutter, ensuring they feel included and considered throughout the design process.</p>
+        </div>
+
+        <div class="element">
+          <h3>Readability</h3>
+          <p>Our goal was to maintain a clean and readable interface while also incorporating vibrant and inviting design elements to appeal to users of all ages and demographics.</p>
+        </div>
+
+        <div class="element">
+          <h3>Inclusivity</h3>
+          <p>We wanted to ensure that people of all ages and backgrounds could have a great experience. To achieve this, we incorporated a variety of options to accommodate different preferences and needs.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class =iterations>
+      <span class="section-label">ITERATIONS</span>
+      <p>Our UI brought the goals to life: intentional design made practice engaging and purposeful, accessibility ensured support for users who stutter, readability kept the interface clean yet vibrant, and inclusivity offered options for all ages and needs. The result was a polished design that embodied our mission of providing options to accommodate different preferences and needs.</p>
+      <img src="assets/iterations.avif" alt="SpeakEasy iterations" />
+    </section>
+  
+
+    <section class="login-transparency reveal">
+      <div class="login-text">
+        <h2>Transparency and User Consent</h2>
+        <p>We ensured users knew precisely where their data was going and how their voice recordings would be used. Based on interviews, transparency emerged as the key expectation, so we treated it as a non-negotiable top priority.</p>
+      </div>
+      <img src="assets/transparency.png" alt="SpeakEasy login screen with transparency" />
+    </section>
+
+    <section class="reflections reveal">
+      <div class="section-header">
+        <span class="section-label">REFLECTIONS</span>
+        <h2>Final Thoughts</h2>
+      </div>
+      
+      <div class="takeaways-content">
+        <p>Winning second place was exciting, but what really stood out was how naturally our team clicked. Even on our first project together, ideas flowed easily and everyone brought something unique to the table. I left not just proud of what we built, but genuinely excited to collaborate with them again in the future.</p>
+      </div>
+
+      <div class="judge-feedback">
+        <span class="feedback-label">FUTURE CONSIDERATIONS</span>
+        <ul class="feedback-list">
+          <li>Prioritize fuller speech samples (phrases and sentences, not just single words) to help the models learn faster. Add game modes that prompt longer responses (mini-stories, sentence chains, guided prompts).</li>
+          <li>Update scoring to reward clarity and complexity, not just speed or accuracy.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="presenting-section reveal">
+      <!-- <h3>Presenting our final design!</h3>
+      <img src="assets/final.svg" alt="SpeakEasy final design" /> -->
+      <a href="https://www.figma.com/proto/XvhbE3Adqd3c6aluez2vnO/Speakeasy?page-id=0%3A1&node-id=946-42173&p=f&viewport=946%2C332%2C0.07&t=x5DmdrIaXjlQyweG-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=946%3A42173&show-proto-sidebar=1" class="red-prototype-button" target="_blank">
+        Check out our prototype here
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </a>
+    </div>
+
+  <script>
+    // Reveal-on-scroll for project content
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+  </main>
+
+
+  <footer-component></footer-component>
+</body>
+</html> 

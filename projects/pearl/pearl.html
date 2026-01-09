@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pearl – Shalini Raval</title>
+  <link rel="icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../blackfavicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" media="(prefers-color-scheme: dark)">
+  <!-- Preload main hero image for faster loading -->
+  <link rel="preload" as="image" href="assets/pearl-thumbnail.svg">
+  <!-- Preload key videos for faster mobile playback -->
+  <link rel="preload" as="video" href="assets/timer.mp4" type="video/mp4">
+  <link rel="preload" as="video" href="assets/productivity.mp4" type="video/mp4">
+  <link rel="preload" as="video" href="assets/treasure-chest.mp4" type="video/mp4">
+  <link rel="apple-touch-icon" href="../../blackfavicon.ico">
+  
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/home.css" />
+  <link rel="stylesheet" href="../../css/projects.css" />
+  <script src="../../js/footer-component.js"></script>
+  
+  <style>
+    /* Pearl specific styling with updated colors */
+    
+    /* Section labels styling */
+    .section-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #023047;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.25rem;
+      text-align: left;
+    }
+    
+    /* Common section styling */
+    .project-overview,
+    .context-section,
+    .challenge-section,
+    .research-section,
+    .iterations-section,
+    .final-designs-section,
+    .takeaways-section {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+    }
+    
+    /* Main headings */
+    .project-overview h2,
+    .context-section h2,
+    .challenge-section h2,
+    .research-section h2,
+    .iterations-section h2,
+    .final-designs-section h2,
+    .takeaways-section h2 {
+      font-size: 2rem;
+      color: #27A4C5;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    
+    /* Sub headings */
+    .research-section h3,
+    .final-designs-section h3 {
+      font-size: 1.25rem;
+      color: #27A4C5;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    
+    /* Body text - darker color */
+    .project-overview p,
+    .context-section p,
+    .challenge-section p,
+    .research-section p,
+    .iterations-section p,
+    .final-designs-section p,
+    .takeaways-section p {
+      color: #2D3748;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .project-overview p {
+      font-size: 1.125rem;
+    }
+
+    /* Overview layout with fish image */
+    .overview-layout {
+      position: relative;
+      display: block;
+    }
+    
+    .overview-text {
+      padding-right: 40px; /* space for smaller fish */
+    }
+    
+    .overview-figure {
+      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-55%);
+      pointer-events: none;
+      background: transparent;
+    }
+    
+    .overview-figure img {
+      height: 42px;
+      width: auto;
+      background: transparent !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 0;
+      margin: 0;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+    }
+    
+    /* Special elements */
+    .highlight-stat {
+      color: #FFB703;
+      font-weight: bold;
+    }
+    
+    /* .challenge-section .problem {
+      color: #FB703;
+    } */
+    
+    .how-might-we {
+      margin-bottom: 2.5rem;
+      width: 95%;
+      margin-left: 0;
+      margin-right: auto;
+      text-align: left;
+      margin-top: 0.25rem;
+    }
+    
+    .how-might-we h2 {
+      font-size: 1.5rem;
+      color: #27A4C5;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    
+    .how-might-we p {
+      color: #FB8501;
+      line-height: 1.6;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      text-align: left;
+    }
+    
+    .how-might-we .question-lead {
+      color: #023047;
+    }
+    
+    /* Problem list styling */
+    .problem-list {
+      list-style: decimal;
+      padding-left: 1.25rem;
+      text-align: left;
+    }
+    
+    .problem-list li {
+      color: #2D3748;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      position: static;
+      padding-left: 2px;
+      text-align: left;
+      /* margin-left: 80px; */
+    }
+    
+    .problem-list li::before { 
+      content: none; 
+    }
+    
+    .problem-list li::marker {
+      color: #27A4C5;
+      font-weight: 700;
+    }
+    
+    .problem-list { 
+      counter-reset: none; 
+    }
+    
+    /* Competitor analysis */
+    .competitor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    
+    .competitor-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .competitor-item img {
+      width: 24px;
+      height: 24px;
+      border-radius: 20%;
+      margin-bottom: 0.5rem;
+    }
+    
+    .competitor-item p {
+      font-size: 0.875rem;
+      color: #2D3748;
+      margin: 0;
+      text-align: center;
+    }
+    
+    /* Comparison section */
+    .comparison-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .comparison-column {
+      text-align: left;
+    }
+    
+    .comparison-column h4 {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      
+    }
+    
+    .comparison-column h4 img {
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      /* opacity: 0.8; */
+    }
+    
+    .comparison-column h4:first-child {
+      color: #27A4C5;
+    }
+    
+    .comparison-column h4:last-child {
+      color: #023047;
+    }
+    
+    .comparison-column ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .comparison-column li {
+      color: #2D3748;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.5rem;
+      text-align: left;
+    }
+    
+    .comparison-column li::before {
+      content: "•";
+      color: #023047;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .comparison-column:last-child li::before {
+      color: #27A4C5;
+    }
+    
+    /* Adaptations comparison */
+    .adaptations-comparison {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .adaptation-column {
+      text-align: left;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #f8f9fa;
+    }
+    
+    .adaptation-column.selected {
+      background: #e3f2fd;
+      border: 2px solid #27A4C5;
+    }
+    
+    /* Problem box styled like Adaptation 3 */
+    .problem-box {
+      text-align: left;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #e3f2fd;
+      border: 2px solid #27A4C5;
+      margin: 1.5rem 0;
+      /* Align inner text with surrounding content's left edge */
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+    .problem-box h2 {
+      font-size: 1.75rem;
+      margin: 0 0 0.75rem 0;
+      color: #27A4C5;
+      font-weight: 700;
+    }
+    .problem-box .section-label { color: #023047; margin-bottom: 0.5rem; }
+    .problem-box p { color: #2D3748; margin-bottom: 0.75rem; }
+    .problem-box ol { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .problem-box li { margin-bottom: 0.5rem; }
+    
+    .adaptation-column h4 {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #023047;
+    }
+    
+    .adaptation-column.selected h4 {
+      color: #27A4C5;
+    }
+    
+    .adaptation-column ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .adaptation-column li {
+      color: #2D3748;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.5rem;
+      text-align: left;
+    }
+    
+    .adaptation-column li::before {
+      content: "•";
+      color: #27A4C5;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    .adaptation-column.selected li::before {
+      color: #27A4C5;
+    }
+
+    /* Design flow */
+    .design-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .design-step {
+      text-align: center;
+    }
+    
+    .design-step img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .design-step p {
+      font-size: 0.875rem;
+      color: #2D3748;
+      margin: 0;
+    }
+    
+    /* Project content styling */
+    .project-content {
+      margin: 0;
+      padding: 2rem;
+      text-align: left;
+    }
+    
+    /* Content images */
+    .project-content img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin: 1.5rem auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: block;
+      background: transparent;
+    }
+    /* Override generic image sizing for the small fish icon */
+    .project-content .overview-figure img {
+      width: auto !important;
+      max-width: none !important;
+      height: 150px !important;
+      display: inline-block;
+      box-shadow: none !important;
+      image-rendering: -webkit-optimize-contrast;
+    }
+    .overview-text {
+      padding-right: 128px; /* space for fish */
+      margin-right: 0;
+    }
+    
+    /* Make selected images span the same width as text */
+    .project-content img.full-width-media {
+      max-width: none;
+      width: 100%;
+      margin-left: 0;
+      margin-right: auto;
+      background: transparent;
+    }
+    
+    /* Info architecture diagram specific styling */
+    .project-content img[src*="info-architec"] {
+      padding: 1rem 1.5rem;
+      margin: 2rem auto;
+    }
+    
+    /* Image captions */
+    .project-content img + p {
+      font-size: 0.875rem;
+      color: #27A4C5;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    /* Blue gradient emphasis */
+    .blue-gradient {
+      background: linear-gradient(90deg, #27A4C5, #8ECAE6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    /* Presenting Pearl section */
+    .presenting-section {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+    
+    .presenting-section h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #27A4C5 !important;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    
+    /* Blue prototype button */
+    .blue-prototype-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 12px 24px;
+      background-color: #27A4C5;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.025em;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(39, 164, 197, 0.3);
+    }
+    
+    .blue-prototype-button:hover {
+      background-color: #1E8BA8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(39, 164, 197, 0.4);
+      color: white;
+    }
+    
+    .blue-prototype-button svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .blue-prototype-button:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    /* Design categories layout - matching screenshot structure */
+    .design-categories {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .design-category {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .design-category:hover {
+      border-color: #27A4C5;
+      box-shadow: 0 4px 16px rgba(39, 164, 197, 0.12);
+      transform: translateY(-1px);
+    }
+    
+    .category-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    
+    .design-category h3 {
+      font-size: 1.25rem;
+      color: #27A4C5;
+      margin: 0;
+      font-weight: 600;
+    }
+    
+    .category-badge {
+      background: #e3f2fd;
+      color: #27A4C5;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .text-content p {
+      color: #2D3748;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    .video-container {
+      text-align: center;
+      display: inline-block;
+      background: transparent;
+    }
+    
+    /* Video styling */
+    .design-video {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 45px;
+      background: transparent;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .design-video::-webkit-media-controls-panel {
+      background-color: rgba(39, 164, 197, 0.1);
+    }
+    
+    .design-video::-webkit-media-controls-play-button,
+    .design-video::-webkit-media-controls-volume-slider {
+      background-color: #27A4C5;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .competitor-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      
+      .comparison-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .design-flow {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      
+      .adaptations-comparison {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .overview-layout { position: static; }
+      .overview-text { padding-right: 0; margin-right: 0; }
+      .overview-figure { position: static; transform: none; margin: 0.75rem auto 0; text-align: center; }
+      .overview-figure img { height: 60px !important; display: block; margin: 0 auto; }
+
+      .design-categories {
+        gap: 1.5rem;
+      }
+      
+      .design-category {
+        padding: 1.25rem;
+      }
+      
+      .category-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      
+      .design-video {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="../../index.html">
+        <img src="../../assets/images/logo.png" alt="Logo" class="nav-logo">
+      </a>
+      <div class="nav-links">
+        <a href="../../index.html">work</a>
+        <a href="../../about.html">about</a>
+        <a class="button" href="https://drive.google.com/file/d/1iiaJBpraR9XzEFWPnvUJw-jEm0uLX308/view?usp=sharing" target="_blank">resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <a href="../../index.html" class="back-arrow">←</a>
+
+  <main class="project-page">
+
+    <header class="project-hero reveal">
+      <figure class="project-hero-image">
+        <img src="assets/pearl-thumbnail.svg" alt="Pearl app mockups" loading="eager" fetchpriority="high" decoding="async" />
+      </figure>
+      
+      <div class="project-header-content reveal">
+        <div class="project-text-content">
+          <div class="project-text-left">
+            <h1 class="project-page-title">Pearl.</h1>
+            <p class="project-tagline">Lock in, Lock out, and Repeat</p>
+          </div>
+          
+          <a href="https://www.figma.com/proto/ZE1QLRx3eS6Epapmn3MNOa/Pearl.?page-id=0%3A1&node-id=161-1771&p=f&viewport=320%2C340%2C0.02&t=XX1haTjXf6AWH6bl-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=33%3A121&show-proto-sidebar=1" class="prototype-button" target="_blank">
+            Prototype
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="project-meta-info">
+          <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">UX/UI Designer
+User Researcher</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">March 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Award</span>
+            <span class="meta-value">🏆 First Place @ SBCL Designathon '25</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">With</span>
+            <span class="meta-value"><a href="https://www.linkedin.com/in/arti-gnanasekar/" target="_blank">Arti Gnanasekar</a>
+<a href="https://www.linkedin.com/in/jeff-antony/" target="_blank">Jeffrey Antony</a></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-content">
+      <div class="project-overview">
+        <div class="overview-layout">
+          <div class="overview-text">
+            <p>Pearl is a Pomodoro timer app designed to <strong class="blue-gradient">help users build mindful digital habits</strong> through gentle encouragement and positive reinforcement. Unlike traditional productivity apps that rely on guilt-based nudges, Pearl creates an <strong class="blue-gradient">engaging underwater-themed experience</strong> that makes focus feel enjoyable.</p>
+          </div>
+          <figure class="overview-figure" aria-hidden="true">
+            <img src="assets/pearl-fish.png" alt="" />
+          </figure>
+        </div>
+      </div>
+
+      <div class="context-section reveal">
+        <span class="section-label">CONTEXT</span>
+        <!-- <p>Self-guided mental-health and wellbeing apps relying on guilt-based nudges see median retention plummet from <span class="highlight-stat">3.9%</span> at <span class="highlight-stat">15 days</span> to just <span class="highlight-stat">3.3%</span> by <span class="highlight-stat">day 30</span>.</p> -->
+        <p>Amid constant notifications, doomscrolling, and digital fatigue, people are craving healthier ways to use their screens. Apple's Screen Time and Google's Digital Wellbeing offer options, but they often feel passive, confusing, or too easy to ignore. What's missing is a more engaging, personalized approach to truly shift digital habits.</p>
+      </div>
+
+      <div class="challenge-section reveal">
+        <div class="problem-box">
+          <span class="section-label">PROBLEM</span>
+          <p>Design a mobile app that helps users build mindful digital habits in fun and engaging ways. The app should focus on encouraging healthy screen usage without relying on guilt or restriction. You may incorporate gamification, journaling, social accountability, or mindfulness elements.</p>
+          <!-- <h3 class ="problem">Study Buddy apps often undermine motivation and breed toxicity.</h3> -->
+          <p>Despite available solutions, users often:</p>
+          <ol class="problem-list">
+            <li>Feel guilty when using screen-time limiters</li>
+            <li>Ignore passive notifications or dashboards</li>
+            <li>Lack emotional motivation to shift their habits</li>
+          </ol>
+          <!-- <p class="question-lead">Which brings us to ask...</p> -->
+        </div>
+      </div>
+      <div class="how-might-we reveal">
+        <span class="section-label">CHALLENGE</span>
+        <p>How might we design a mobile app that promotes mindful digital habits in fun and engaging ways, without guilt or restriction?</p>
+      </div>
+
+      <div class="research-section reveal">
+        <span class="section-label">USER RESEARCH</span>
+        <h2>Competitive Analysis</h2>
+        <p> We evaluated popular productivity and digital wellbeing apps, such as <b>Flora</b>, <b>Focus Keeper</b>, and <b>Screen Time</b>, to understand their success and shortcomings in supporting healthy screen habits for college students.</p>
+        
+    
+
+        <div class="comparison-section">
+          <div class="comparison-column">
+                          <h4>Where these apps fall short ㄨ</h4>
+            <ul>
+              <li>Guilt-based limits discouraged users</li>
+              <li>Passive Data doesn't drive behavior change</li>
+              <li>No control over what counts as "productive" or "distractive" elements/platforms</li>
+              <li>Minimal emotional or visual engagement</li>
+            </ul>
+          </div>
+          <div class="comparison-column">
+                          <h4>How our app implements a solution ✓ </h4>
+            <ul>
+              <li>Uses gentle encouragement and positive reinforcement</li>
+              <li>Delivers playful, visual feedback through animated elements or companions</li>
+              <li>Let users define productivity on their own without having to accommodate to app's rigid rules</li>
+              <li>Features a soothing underwater theme that makes focus feel enjoyable</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="iterations-section reveal">
+        <span class="section-label">ITERATIONS</span>
+        <p>Our aim was to create a streamlined, all-in-one solution that cut down on excessive screen time, staying true to our mission of reducing digital distractions. We focused on a clean, welcoming interface and, after several design iterations, developed these three polished concepts.</p>
+        <img src="assets/pearl-iterations.avif" alt="Iteration doodles" class="full-width-media">
+        
+        <div class="adaptations-comparison">
+          <div class="adaptation-column">
+            <h4>Adaptation 1</h4>
+            <ul>
+              <li>Lacks clear structure or hierarchy, making it hard to understand what's being communicated.</li>
+              <li><strong>Overwhelming</strong> and visually dense.</li>
+              <li><strong>Lacking</strong> a cheerful and motivating element.</li>
+            </ul>
+          </div>
+          <div class="adaptation-column">
+            <h4>Adaptation 2</h4>
+            <ul>
+              <li><strong>Clean</strong> sections with detailed descriptions and information.</li>
+              <li>Motivational tasks are present but it may not be <strong>optimal</strong> for uplifting the user and encouraging them to interact more with the app and keep up their streak.</li>
+            </ul>
+          </div>
+          <div class="adaptation-column selected">
+            <h4>Adaptation 3 ✓</h4>
+            <ul>
+              <li>A playful, gamified companion to <strong>boost engagement</strong> and motivation.</li>
+              <li>Short blurbs to explain stats <strong>clearly</strong> in each section.</li>
+              <li>A <strong>clean</strong> homepage to reduce reliance on the nav bar and feel more open.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>We chose <b>Adaptation 3</b>, simplifying the homepage by removing excess boxes and organizing everything into folders for a cleaner, more inviting look. This version highlights four core categories—Pomodoro, Productivity, Progress, and Treasure Chest. Within each, users can adjust settings like timer length or daily tasks, offering just enough customization to stay engaged without losing focus. This process helped us refine the preliminary information architecture that will guide our app’s design.</p>
+        <img src ="assets/info-architec.svg" alt = "info architecture diagram" class="full-width-media">
+      </div>
+
+      <div class="final-designs-section reveal">
+        <span class="section-label">FINAL DESIGNS</span>
+        <h2>Meet Pearl!</h2>
+        
+        <div class="design-categories">
+          <div class="design-category">
+            <div class="category-content">
+              <div class="video-container">
+                <video class="design-video" muted loop preload="auto" playsinline>
+                  <source src="assets/timer.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="text-content">
+                <div class="category-header">
+                  <h3>Pomodoro Timer</h3>
+                  <span class="category-badge">Core Feature</span>
+                </div>
+                <p>The <b>Pomodoro</b> timer guides users through setting preferences, focusing during work and breaks, and finally viewing a summary of their progress and rewards.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="design-category">
+            <div class="category-content">
+              <div class="video-container">
+                <video class="design-video" muted loop preload="auto" playsinline>
+                  <source src="assets/productivity.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="text-content">
+                <div class="category-header">
+                  <h3>Productivity</h3>
+                  <span class="category-badge">Analytics</span>
+                </div>
+                <p>The <b>Productivity</b> flow gives users a clear snapshot of their screen habits. They can tag apps as productive or distracting, then review visualizations of screen time, pickups, and Pomodoro sessions to better understand how their time is being used.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="design-category">
+            <div class="category-content">
+              <div class="video-container">
+                <video class="design-video" muted loop preload="auto" playsinline>
+                  <source src="assets/treasure-chest.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="text-content">
+                <div class="category-header">
+                  <h3>Treasure Chest and Progress</h3>
+                  <span class="category-badge">Gamification</span>
+                </div>
+                <p><b>The Treasure Chest</b> feature promotes mindful breaks during Pomodoro sessions by suggesting creative daily tasks. Completing them earns shells, rewarding users with playful progress and surprises to unlock.</p>
+                <p>The <b>Progress</b> screen keeps users motivated by tracking daily Pomodoro streaks, celebrating usage milestones, and showing long-term consistency through a calendar heatmap.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="takeaways-section reveal">
+        <span class="section-label">REFLECTIONS</span>
+        <!-- <h2>Key Takeaways</h2> -->
+        <p>Our final Pearl prototype was evaluated at the Jumpstart Spring Designathon, earning perfect scores in user research, experience, interface, and creativity. The judges recognized the strength of our concept, execution, and focus on user needs earning us First Place!</p>
+        <img src="assets/rubric.avif" alt="Judges rubric" class="full-width-media">
+       </div>  
+      
+       <div class="presenting-section">
+        <a href="https://www.figma.com/proto/ZE1QLRx3eS6Epapmn3MNOa/Pearl.?page-id=0%3A1&node-id=161-1771&p=f&viewport=320%2C340%2C0.02&t=XX1haTjXf6AWH6bl-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=33%3A121&show-proto-sidebar=1" class="blue-prototype-button" target="_blank">
+          Check out our prototype here
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+
+   
+  </main>
+
+
+  <footer-component></footer-component>
+
+  <script>
+    // Reveal-on-scroll for project content
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
+    // Autoplay videos when they come into viewport
+    function setupVideoAutoplay() {
+      const videos = document.querySelectorAll('.design-video');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(e => {
+              console.log('Autoplay prevented:', e);
+            });
+          } else {
+            video.pause();
+          }
+        });
+      }, {
+        threshold: 0.5 // Play when 50% of video is visible
+      });
+      
+      videos.forEach(video => {
+        observer.observe(video);
+      });
+    }
+    
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', setupVideoAutoplay);
+  </script>
+</body>
+</html> 

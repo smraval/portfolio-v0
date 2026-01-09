@@ -1,0 +1,295 @@
+<!-- ====== TIMELINE (updated styling) ====== -->
+<div class="timeline-wrap">
+  <!-- The main horizontal line -->
+  <div class="timeline-line"></div>
+
+  <!-- Vertical stems (unchanged positions) -->
+  <div class="stem stem-left-bottom"></div>
+  <div class="stem stem-top-be"></div>
+  <div class="stem stem-right-top"></div>
+  <div class="stem stem-right-bottom"></div>
+
+  <!-- Bottom-left: Tech4Good (expands from icon) -->
+  <div class="node node-bottom" style="left: 16%;" data-card>
+    <div class="expander">
+      <div class="exp-icon">
+        <img src="assets/images/t4g.png" alt="Tech4Good" />
+      </div>
+      <div class="exp-content">
+        <div class="card-text">
+          <div class="card-title">Tech4Good</div>
+          <div class="card-subtitle">Web Developer</div>
+        </div>
+        <div class="card-date">Dec 2024 – Present</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top-left: BE (expands from icon) -->
+  <div class="node node-top node-be" style="left: 40%;" data-card>
+    <div class="expander">
+      <div class="exp-icon">
+        <img src="assets/images/baskin.png" alt="Baskin Engineering" />
+      </div>
+      <div class="exp-content">
+        <div class="card-text">
+          <div class="card-title">Baskin Engineering</div>
+          <div class="card-subtitle">Group Tutor</div>
+        </div>
+        <div class="card-date">Jan 2025 – Present</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top-right: Adobe (expands from icon) -->
+  <div class="node node-top node-adobe" style="left: 74%;" data-card>
+    <div class="expander">
+      <div class="exp-icon">
+        <img src="assets/images/adobe.png" alt="Adobe" />
+      </div>
+      <div class="exp-content">
+        <div class="card-text">
+          <div class="card-title">Adobe</div>
+          <div class="card-subtitle">Student Ambassador</div>
+        </div>
+        <div class="card-date">Aug 2025 – Present</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom-right: IBC (expands from icon) -->
+  <div class="node node-bottom node-hs" style="left: 58%;" data-card>
+    <div class="expander">
+      <div class="exp-icon">
+        <img src="assets/images/ibc.png" alt="International Business Consultants" />
+      </div>
+      <div class="exp-content">
+        <div class="card-text">
+          <div class="card-title">IBC</div>
+          <div class="card-subtitle">Product Engineer Intern</div>
+        </div>
+        <div class="card-date">Jun 2025 – Sep 2025</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* --- Canvas --- */
+.timeline-wrap{
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  height: 360px;
+  margin: 24px auto;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+}
+
+/* --- Main horizontal line --- */
+.timeline-line{
+  position: absolute;
+  left: 10%; right: 10%; top: 52%;
+  height: 2px; background: #CFD3DC;
+}
+
+/* --- Stems --- */
+.stem{ position:absolute; width:2px; background:#CFD3DC; }
+.stem-left-bottom{ left:16%; top:52%; height:90px; }
+.stem-top-be{      left:40%; top:28%; height:86px; }
+.stem-right-top{   left:74%; top:30%; height:81px; }
+.stem-right-bottom{left:58%; top:52%; height:90px;}
+
+/* --- Anchor nodes (no visual for data-card anchors) --- */
+.node{
+  position:absolute;
+  transform:translate(-50%,-50%);
+}
+.node-bottom{ top:calc(52% + 90px); }
+.node-top{    top:28%; }
+
+/* Default static circular style (only used if you ever add a node WITHOUT data-card) */
+.node:not([data-card]){
+  width:74px; height:74px; border-radius:50%;
+  display:grid; place-items:center;
+  background:#fff;
+  box-shadow:0 1px 0 rgba(0,0,0,.06), 0 8px 30px rgba(0,0,0,.06);
+}
+.node:not([data-card]) img{ width:42px; height:42px; object-fit:contain; }
+
+/* ===== EXPANDING PILL (nodes with experiences) ===== */
+.node[data-card]{ width:0; height:0; }
+
+/* Expander starts as same 74px circle, grows to the right */
+.expander{
+  position:relative;
+  left:-37px; top:-37px;
+  height:74px; width:74px;
+  border-radius:37px;
+  background:#fff;
+  border:1px solid #ebedf0;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  display:flex; align-items:center;
+  overflow:hidden;
+  transition: width .22s ease, border-radius .22s ease, box-shadow .22s ease;
+  cursor:pointer;
+  /* Ensure all expanders are in the same stacking context */
+  z-index: 1; /* baseline */
+}
+
+
+/* Icon circle (WHITE by default) — turns gray ONLY on hover */
+.exp-icon{
+  flex:0 0 74px; height:74px;
+  display:grid; place-items:center;
+  background:#ffffff;                 /* default white */
+  border-radius:50%;
+  box-shadow: inset 0 0 0 1px #e9eaee;
+  transition: background-color .18s ease;
+}
+.node[data-card]:hover .exp-icon{
+  background:#F5F5F7;      
+}
+
+.exp-icon img{ width:36px; height:36px; object-fit:contain; }
+
+/* Content area */
+.exp-content{
+  display:flex; align-items:center; gap:18px;
+  padding:0 18px 0 14px; white-space:nowrap;
+  max-width:0; opacity:0;
+  transition:max-width .22s ease, opacity .16s ease;
+}
+
+/* Typography */
+.card-text{ line-height:1.15; flex:1; min-width:0; }
+.card-title{ font-weight:600; font-size:16px; color:#0f0f0f; }
+.card-subtitle{ font-size:14px; color:#b0b4b9; margin-top:6px; }
+.card-date{ font-size:12px; color:#596070; margin-left:auto; }
+
+/* Hover: compact pill + round corners */
+.node[data-card]:hover .expander{
+  width: 480px;
+  border-radius: 40px;
+  box-shadow:0 10px 28px rgba(0,0,0,.10);
+}
+.node[data-card]:hover .exp-content{
+  max-width: 400px;
+  opacity: 1;
+}
+.node[data-card]:hover .expander {
+  z-index: 10;
+}
+
+/* create an isolated stacking context for predictable z-index */
+.timeline-wrap { isolation: isolate; }
+
+/* lines/stems sit at the very back and don't block hover */
+.timeline-line,
+.stem {
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* nodes above lines by default */
+.node {
+  position: absolute;          /* already set, but ensures stacking works */
+  z-index: 1;                  /* baseline above the line */
+}
+
+/* bring the WHOLE hovered node (and its pill) to the top */
+.node[data-card]:hover,
+.node[data-card]:focus-within {
+  z-index: 9999;               /* higher than any other node/line */
+}
+
+/* keep the expander on top inside its own context too */
+.node[data-card] .expander { z-index: 1; }
+.node[data-card]:hover .expander { z-index: 2; }  /* not strictly required, but safe */
+/* Hover: shorter pill, rounder corners */
+.node[data-card]:hover .expander {
+  width: 360px;       /* shorter than 480px */
+  border-radius: 40px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.10);
+}
+
+/* Content area spans full pill so date can align right */
+.exp-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 0 18px 0 14px;
+  white-space: nowrap;
+  flex: 1;                /* fill remaining space */
+  max-width: 0;
+  opacity: 0;
+  transition: max-width .22s ease, opacity .16s ease;
+}
+
+/* Date pushed to the far right edge */
+.card-date {
+  font-size: 14px;
+  color: #596070;
+  margin-left: auto;      /* pushes it right */
+}
+/* --- Shorter pill that fits content, with right-aligned date --- */
+
+/* tweak the cap if any pill can get too long */
+:root { --pill-max: 380px; }   /* try 360–420px to taste */
+
+.expander{
+  /* collapsed state: just the circle */
+  width: 74px;
+  max-width: 74px;              /* important: lets us animate to a larger max later */
+  display: inline-flex;         /* so width:auto on hover fits content */
+}
+
+/* on hover, let the pill expand only as much as it needs (up to a cap) */
+.node[data-card]:hover .expander{
+  width: max-content;           /* fit content */
+  max-width: var(--pill-max);   /* keep it from getting too wide */
+  border-radius: 40px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.10);
+  transition: max-width .22s ease, border-radius .22s ease, box-shadow .22s ease;
+}
+
+/* content layout so date hugs the right edge */
+.exp-content{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 0 18px 0 14px;
+  white-space: nowrap;
+  flex: 1;                      /* fill remaining space */
+  opacity: 0;                   /* hidden while collapsed */
+  transition: opacity .16s ease;
+}
+
+/* reveal content when expanded */
+.node[data-card]:hover .exp-content{ opacity: 1; }
+
+/* text blocks */
+.card-text{ flex: 1; min-width: 0; line-height: 1.15; }
+.card-date{ margin-left: auto; font-size: 14px; color: #596070; }
+
+/* fit-to-content pill on hover (wins over older rules) */
+.timeline-wrap .node[data-card]:hover > .expander{
+  width: max-content !important;     /* override any fixed width */
+  max-width: var(--pill-max, 380px); /* per-node cap; default 380 */
+  border-radius: 40px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.10);
+}
+
+/* reveal content */
+.timeline-wrap .node[data-card]:hover > .expander > .exp-content{
+  opacity: 1;
+}
+
+/* keep date flush-right */
+.exp-content{ flex:1; }
+.card-date{ margin-left:auto; }
+
+
+</style>
+<!-- ====== /TIMELINE ====== -->
