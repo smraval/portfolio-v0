@@ -108,7 +108,7 @@ body.home-page nav.scrolled .nav-container {
 body.home-page nav.scrolled .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
 }
 
 @keyframes glassFadeIn {
@@ -156,7 +156,7 @@ body.home-page nav.scrolled .nav-links {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
   animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
@@ -813,11 +813,6 @@ h1{
     font-size: 0.875rem;
   }
   
-  nav .button {
-    padding: 8px 16px;
-    font-size: 0.875rem;
-  }
-  
   .project{padding-block:4.5rem}
   .project-grid{
     grid-template-columns:1fr;
@@ -893,11 +888,6 @@ h1{
   }
   
   nav a {
-    font-size: 0.8rem;
-  }
-  
-  nav .button {
-    padding: 6px 12px;
     font-size: 0.8rem;
   }
   
