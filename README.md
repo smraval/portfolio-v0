@@ -1,2 +1,2 @@
 # smraval.github.io
-~ in progress ~ 
+welcome to my portfolio! 
