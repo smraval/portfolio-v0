@@ -1,0 +1,33 @@
+/* Home: music staff behind the name, opening sequence, strum hint */
+.hero > .nav, .hero > .hero-copy { position: relative; z-index: 2; }
+.staff-svg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: visible; }
+.staff-notes { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.staff-gl { position: absolute; font: 400 clamp(32px, 4vw, 52px)/1 var(--serif, 'Newsreader', serif); color: rgba(201, 84, 92, .5); opacity: 0; will-change: transform, opacity; }
+.staff-hint {
+  position: absolute; z-index: 3; right: var(--pad, 64px); width: 240px; text-align: right; pointer-events: none;
+  opacity: 0; transition: opacity .9s ease; font: 500 14px/1.2 var(--mono, 'DM Sans', sans-serif); letter-spacing: .1em; color: #c9545c;
+}
+.staff-hint::after { content: ''; display: block; height: 1px; margin: 6px 0 0 auto; width: 100%; background: linear-gradient(90deg, transparent, rgba(201, 84, 92, .55)); }
+html.intro-on .staff-svg { opacity: 0; }
+/* the strings draw in from the left when the page loads */
+.staff-svg { clip-path: inset(-80px 100% -80px 0); }
+.staff-svg.drawn { clip-path: inset(-80px -20px -80px 0); transition: clip-path 1.3s cubic-bezier(.65, 0, .35, 1); }
+@media (prefers-reduced-motion: reduce) { .staff-svg { clip-path: none; } }
+@media (hover: none), (pointer: coarse) { .staff-hint { display: none; } }
+
+/* opening: record spins on white with a track-bar loading cue */
+.intro { display: none; }
+html.intro-on .intro, .intro.is-out {
+  display: flex; position: fixed; inset: 0; z-index: 2147483000; background: #fff;
+  flex-direction: column; align-items: center; justify-content: center; gap: 0;
+  animation: introSafety .01s 6s forwards; /* never trap the page if scripts fail */
+}
+html.intro-on { overflow: hidden; }
+.intro-rec { width: 200px; height: 200px; will-change: transform; }
+.intro-disc { transform-origin: 50% 50%; }
+.intro-ind { margin-top: 38px; text-align: center; transition: opacity .25s ease; }
+.intro-ind .lab { font: 500 18px/1 var(--mono, 'DM Sans', sans-serif); letter-spacing: .12em; color: #6b6b73; }
+.intro-ind .bar { width: 240px; height: 3px; margin: 24px auto 0; border-radius: 2px; background: #ede6e6; overflow: hidden; }
+.intro-ind .bar i { display: block; height: 100%; width: 0; background: #c9545c; }
+.intro-ghost { position: fixed; left: 0; top: 0; z-index: 2147483001; width: 200px; height: 200px; pointer-events: none; transform-origin: 50% 50%; will-change: transform; }
+@keyframes introSafety { to { opacity: 0; visibility: hidden; pointer-events: none; } }

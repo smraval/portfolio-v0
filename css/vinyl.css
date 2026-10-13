@@ -1,0 +1,24 @@
+/* Record cursor (home + about). Replaces the pink dot there. */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+.vc, .vtag { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 2147483647; opacity: 0; transition: opacity .2s ease; }
+.vc.is-visible, .vtag.is-visible { opacity: 1; }
+.vc { width: 38px; height: 38px; will-change: transform; }
+.vc-disc, .intro-disc {
+  position: relative; width: 100%; height: 100%; border-radius: 50%;
+  background: repeating-radial-gradient(circle, #161618 0 2px, #222226 2px 3px), #111;
+  box-shadow: 0 8px 20px rgba(60, 30, 40, .3);
+}
+.vc-disc::before, .intro-disc::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(from 20deg, transparent 0 18%, rgba(255,255,255,.18) 25%, transparent 32% 68%, rgba(255,255,255,.18) 75%, transparent 82%);
+}
+.vc-disc i, .intro-disc i { position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; margin: -17% 0 0 -17%; border-radius: 50%; background: #c9545c; }
+.vc-disc i::after, .intro-disc i::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14%; height: 14%; margin: -7% 0 0 -7%; border-radius: 50%; background: #fff; }
+.vtag {
+  font: 500 15px/1 'DM Sans', sans-serif; color: #fff; background: rgba(30, 30, 34, .9);
+  padding: 7px 14px; border-radius: 30px; white-space: nowrap; transition: opacity .2s ease;
+}
+/* tiles lift while the record is over them */
+.tile .tile-media { transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+html.vinyl .tile:hover .tile-media { transform: translateY(-6px); }
+@media (prefers-reduced-motion: reduce) { html.vinyl .tile:hover .tile-media { transform: none; } }
