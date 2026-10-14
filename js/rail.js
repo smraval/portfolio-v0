@@ -26,24 +26,31 @@
   document.body.appendChild(rail);
   var dot = rail.querySelector('.dt'), links = [].slice.call(rail.querySelectorAll('a'));
 
+  var PIN = 140;
   function topOf(el) { return el.getBoundingClientRect().top + window.pageYOffset; }
   var ticking = false;
   function update() {
     ticking = false;
     var y = window.pageYOffset, H = window.innerHeight;
-    // the rail only starts once the main image and the roles/timeline row are scrolled past
-    var heroEnd = hero.getBoundingClientRect().bottom + y;
-    var railBottom = 140 + items.length * 34, ft = document.querySelector('.site-footer');
-    var pastHero = hero.getBoundingClientRect().bottom <= 130;
+    // the rail appears with the first section (Overview), lined up with it, then rides up with the page and pins at the top
+    var firstTop = items[0].el.getBoundingClientRect().top;
+    var railTop = Math.max(PIN, firstTop);
+    rail.style.top = railTop + 'px';
+    var railBottom = railTop + items.length * 34, ft = document.querySelector('.site-footer');
+    var shown = firstTop < H - 40;
     var clearOfFooter = !ft || ft.getBoundingClientRect().top >= railBottom + 24;
-    rail.classList.toggle('on', pastHero && clearOfFooter);
+    rail.classList.toggle('on', shown && clearOfFooter);
     var tops = items.map(function (it) { return topOf(it.el); });
-    var ref = y + H * 0.4, i = 0, fr = 0, j;
+    // a section counts as current only once its top has scrolled up to the pinned rail
+    var ref = y + PIN + 12, i = 0, fr = 0, j;
     for (j = 0; j < tops.length; j++) if (ref >= tops[j]) i = j;
     if (ref < tops[0]) { i = 0; fr = 0; }
     else if (i < tops.length - 1) fr = Math.max(0, Math.min(1, (ref - tops[i]) / (tops[i + 1] - tops[i])));
+    // at the very bottom the last sections may never reach the top, so the last one wins
+    if (y + H >= document.documentElement.scrollHeight - 4) { i = tops.length - 1; fr = 0; }
     dot.style.transform = 'translateY(' + ((i + fr) * 34 + 12.5 - 4.5) + 'px)';
-    links.forEach(function (a, k) { a.classList.toggle('a', k === i); });
+    var cur = Math.min(tops.length - 1, Math.round(i + fr)); // the label next to the dot is the one highlighted
+    links.forEach(function (a, k) { a.classList.toggle('a', k === cur); });
   }
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
   window.addEventListener('scroll', req, { passive: true });
@@ -52,7 +59,7 @@
   links.forEach(function (a, k) {
     a.addEventListener('click', function (e) {
       e.preventDefault();
-      window.scrollTo({ top: topOf(items[k].el) - 110, behavior: reduce ? 'auto' : 'smooth' });
+      window.scrollTo({ top: topOf(items[k].el) - PIN, behavior: reduce ? 'auto' : 'smooth' }); // lands with the section level with the rail
     });
   });
   update();

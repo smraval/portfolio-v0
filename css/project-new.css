@@ -62,7 +62,7 @@ body.pj .project-page strong, body.pj .project-page b { font-weight: 600; }
 .pj-spacer { height: 110px; }
 
 /* ---------- section rail ---------- */
-.pj-rail { position: fixed; left: 64px; top: 140px; width: 230px; z-index: 20; opacity: 0; transform: translateX(-8px); pointer-events: none; transition: opacity .5s ease, transform .5s ease; }
+.pj-rail { position: fixed; left: 64px; top: 140px; width: 230px; z-index: 20; opacity: 0; transform: translateX(-8px); pointer-events: none; transition: opacity .4s ease, transform .4s ease; will-change: top; }
 .pj-rail.on { opacity: 1; transform: none; }
 .pj-rail .hl { position: absolute; left: 4px; top: 8px; width: 1px; background: #e3dddd; }
 .pj-rail .dt { position: absolute; left: 0; top: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--pj-accent); box-shadow: 0 0 0 5px color-mix(in srgb, var(--pj-accent) 18%, transparent); transition: transform .12s linear; }
