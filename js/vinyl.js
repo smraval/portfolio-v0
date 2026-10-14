@@ -22,9 +22,9 @@
     V.y += (V.ty - V.y) * (reduce ? 1 : 0.42);
     var moving = performance.now() - lastMove < 150;
     angle += reduce ? 0 : (moving ? 4.5 : 1.5);
-    vc.style.transform = 'translate3d(' + (V.x - 19) + 'px,' + (V.y - 19) + 'px,0)';
+    vc.style.transform = 'translate3d(' + (V.x - 15) + 'px,' + (V.y - 15) + 'px,0)';
     disc.style.transform = 'rotate(' + angle + 'deg)';
-    var tx = V.x + 26; if (tx + tagW > window.innerWidth - 8) tx = V.x - 26 - tagW;
+    var tx = V.x + 22; if (tx + tagW > window.innerWidth - 8) tx = V.x - 22 - tagW;
     tag.style.transform = 'translate3d(' + tx + 'px,' + (V.y - 14) + 'px,0)';
     requestAnimationFrame(frame);
   }

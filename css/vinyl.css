@@ -2,11 +2,11 @@
 html.has-cursor, html.has-cursor * { cursor: none !important; }
 .vc, .vtag { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 2147483647; opacity: 0; transition: opacity .2s ease; }
 .vc.is-visible, .vtag.is-visible { opacity: 1; }
-.vc { width: 38px; height: 38px; will-change: transform; }
+.vc { width: 30px; height: 30px; will-change: transform; }
 .vc-disc, .intro-disc {
   position: relative; width: 100%; height: 100%; border-radius: 50%;
   background: repeating-radial-gradient(circle, #161618 0 2px, #222226 2px 3px), #111;
-  box-shadow: 0 8px 20px rgba(60, 30, 40, .3);
+  box-shadow: 0 6px 16px rgba(60, 30, 40, .28);
 }
 .vc-disc::before, .intro-disc::before {
   content: ''; position: absolute; inset: 0; border-radius: 50%;

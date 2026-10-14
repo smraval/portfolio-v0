@@ -155,7 +155,7 @@
       ang += 1.5;
       var tx = V && V.moved ? V.tx : sx, ty = V && V.moved ? V.ty : sy;
       var x, y, sc;
-      if (canFly) { x = sx + (tx - sx) * e; y = sy + (ty - sy) * e; sc = 1 + (0.19 - 1) * e; }
+      if (canFly) { x = sx + (tx - sx) * e; y = sy + (ty - sy) * e; sc = 1 + (0.15 - 1) * e; }
       else { x = sx; y = sy; sc = 1 - 0.4 * e; ghost.style.opacity = 1 - e; }
       ghost.style.transform = 'translate3d(' + (x - 100) + 'px,' + (y - 100) + 'px,0) scale(' + sc + ')';
       gd.style.transform = 'rotate(' + ang + 'deg)';
