@@ -546,3 +546,22 @@ html { scroll-behavior: smooth; }
 
 /* less empty space under the signature line */
 .site-footer { padding-bottom: 14px; }
+
+/* home: the nav stays pinned while scrolling; clear over the gradient at the top, frosted white once scrolled (same as the other pages) */
+.hero { padding-top: calc(18px + 56px); }
+body.home .hero > .nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  padding: 18px var(--pad);
+  border-bottom: 1px solid transparent;
+  transition: background-color .4s ease, border-color .4s ease;
+}
+/* over the header: a soft blush glass that blends into the gradient */
+body.home .hero > .nav.is-scrolled {
+  background: rgba(249, 228, 226, .55);
+  -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
+}
+body.home .hero > .nav.is-stuck {
+  background: rgba(255, 255, 255, .72);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border-bottom-color: #f0ecec;
+}

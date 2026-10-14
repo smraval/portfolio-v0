@@ -49,3 +49,19 @@
     }
   }
 })();
+
+/* home: frosted background behind the pinned nav once the work section reaches it */
+(function () {
+  var nav = document.querySelector('.hero > .nav');
+  if (!nav) return;
+  var work = document.getElementById('work');
+  // stays clear over the header; the frosted bar only fills in once the projects reach the nav
+  var set = function () {
+    var on = work ? work.getBoundingClientRect().top <= nav.offsetHeight : (window.pageYOffset > 8);
+    nav.classList.toggle('is-stuck', on);
+    nav.classList.toggle('is-scrolled', !on && (window.pageYOffset || document.documentElement.scrollTop) > 8);
+  };
+  window.addEventListener('resize', set);
+  window.addEventListener('scroll', set, { passive: true });
+  set();
+})();

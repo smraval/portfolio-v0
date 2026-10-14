@@ -10,13 +10,6 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 /* selected text is pink */
 ::selection { background: rgba(201, 84, 92, 0.3); color: inherit; }
 ::-moz-selection { background: rgba(201, 84, 92, 0.3); color: inherit; }
-/* over any text, and while dragging a selection, the cursor is a pink eighth note */
-.note-cursor { position: fixed; left: 0; top: 0; z-index: 2147483647; pointer-events: none; opacity: 0; transition: opacity .15s ease; will-change: transform; }
-.note-cursor svg { display: block; margin: -29px 0 0 -6px; filter: drop-shadow(0 2px 3px rgba(60, 30, 40, .18)); }
-html.is-selecting .note-cursor, html.is-text .note-cursor { opacity: 1; }
-html.is-selecting .cursor, html.is-selecting .vc, html.is-text .cursor, html.is-text .vc { opacity: 0 !important; }
-html.is-selecting, html.is-selecting * { cursor: none !important; user-select: text; }
-
 /* subtle film grain over every page (still, sits under the cursors) */
 html::after {
   content: ""; position: fixed; inset: 0; z-index: 2147482000; pointer-events: none;
